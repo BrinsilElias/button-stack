@@ -3,8 +3,11 @@ WRAPPER UTILITY
 A common wrapper/container
 */
 .wrapper {
+    --_max-width: 80rem;
+    --_min-width: 20rem;
+    --_ideal-width: calc(100% - (2 * 1.5rem));
+
     margin-inline: auto;
-    width: clamp(16rem, 95vw, 85rem);
-    padding-inline: $size-fluid-1;
+    width: clamp(var(--_min-width, 16rem), var(--_ideal-width, 95vw), var(--_max-width, 85rem));
     position: relative;
 }
