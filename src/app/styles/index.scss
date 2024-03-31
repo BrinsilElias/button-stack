@@ -1,5 +1,32 @@
+/* --- Custom Font Face --- */
 @import './fonts';
+
+// Custom brand colors
+@import './variables/colors/brand.colors';
+
+/* --- Custom Button Styles --- */
+@import './buttons';
+
+@include color-scheme($os-dark) {
+    :where(html) {
+        --surface-1: #{$app-clr-background-dark};
+        --header-bg: #{$app-clr-header-background-dark};
+    }
+}
 
 body {
     font-family: Satoshi, $font-sans;
+}
+
+header {
+    padding-block: $size-5;
+    margin-bottom: $size-3;
+    background-color: var(--header-bg);
+}
+
+article {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: $size-4;
 }
