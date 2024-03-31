@@ -14,6 +14,13 @@
     }
 }
 
+@include color-scheme($os-light) {
+    :where(html) {
+        --surface-1: #{$app-clr-background-light};
+        --header-bg: #{$app-clr-header-background-light};
+    }
+}
+
 body {
     font-family: Satoshi, $font-sans;
 }
