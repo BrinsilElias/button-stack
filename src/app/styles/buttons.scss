@@ -4,9 +4,6 @@
     --_padding-block: 0.25em;
     --_border-radius: #{$radius-2};
     --_highlight-size: 0;
-    --_shadow-1: 0 1px 2px -1px hsl(var(--_shadow-color) / calc(var(--_shadow-strength) + 9%));
-    --_shadow-2: 0 3px 5px -2px hsl(var(--_shadow-color) / calc(var(--_shadow-strength) + 3%)),
-        0 7px 14px -5px hsl(var(--_shadow-color) / calc(var(--_shadow-strength) + 5%));
     --_icon-size: #{$size-icon-sm};
     --_icon-color: var(--_text);
 
@@ -16,14 +13,12 @@
 @include color-scheme($os-dark) {
     :where(button, input[type='button'], input[type='submit'], input[type='reset'], input[type='file'], [role='button']),
     :where(input[type='file'])::file-selector-button {
-        --_text: hsl(210deg 5% 95%);
-        --_bg: hsl(210deg 9% 31%);
-        --_border: hsl(210deg 9% 31%);
-        --_shadow-color: 220deg 40% 2%;
-        --_shadow-strength: 25%;
-        --_shadow-depth: 0 1px var(--_bg);
-        --_ink-shadow: 0 1px 0 hsl(210deg 11% 15%);
-        --_highlight: hsl(210deg 10% 5% / 25%);
+        --_hue: 244deg;
+        --_text: hsl(210deg 5% 90%);
+        --_bg: hsl(var(--_hue) 64% 55%);
+        --_border: hsl(var(--_hue) 9% 31%);
+        --_outline: hsl(var(--_hue) 63% 55%);
+        --_highlight: hsl(var(--_hue) 50% 55% / 40%);
         --_input-well: hsl(200deg 10% 6%);
 
         line-height: 1.5;
@@ -33,15 +28,13 @@
 @include color-scheme($os-light) {
     :where(button, input[type='button'], input[type='submit'], input[type='reset'], input[type='file'], [role='button']),
     :where(input[type='file'])::file-selector-button {
-        --_text: hsl(210deg 10% 30%);
-        --_bg: hsl(0deg 0% 100%);
-        --_border: hsl(210deg 14% 89%);
-        --_shadow-color: 220deg 3% 15%;
-        --_shadow-strength: 1%;
-        --_shadow-depth: 0 1px var(--_border);
-        --_ink-shadow: 0 1px 0 var(--_border);
-        --_highlight: hsl(210deg 10% 71% / 25%);
-        --_input-well: hsl(210deg 16% 87%);
+        --_hue: 244deg;
+        --_text: hsl(210deg 5% 95%);
+        --_bg: hsl(var(--_hue) 68% 57%);
+        --_border: hsl(var(--_hue) 75% 85%);
+        --_outline: hsl(244deg 61% 60%);
+        --_highlight: hsla(var(--_hue) 67% 66% / 30%);
+        --_input-well: hsl(0deg 0% 92%);
 
         line-height: 1.5;
     }
@@ -62,12 +55,7 @@
     font-size: var(--_size, 1rem);
     background: var(--_bg);
     color: var(--_text);
-    border: 2px solid var(--_border);
-    box-shadow: 
-        var(--_shadow-2),
-        var(--_shadow-depth),
-        0 0 0 var(--_highlight-size) var(--_highlight);
-    text-shadow: var(--_ink-shadow);
+    box-shadow: 0 0 0 var(--_highlight-size) var(--_highlight);
     text-decoration: none;
     transition: var(--_transition);
     display: inline-flex;
@@ -87,7 +75,6 @@
     block-size: var(--_icon-size);
     inline-size: var(--_icon-size);
     stroke: var(--_icon-color);
-    filter: drop-shadow(var(--_ink-shadow));
     flex-shrink: 0;
     fill: none;
     stroke-linecap: round;
@@ -96,37 +83,51 @@
 
 /* --- focus --- */
 :where(button, input, [role='button']):where(:not(:active)):focus-visible {
-    outline-offset: 5px;
+    outline: var(--_outline) 2px solid;
+    outline-offset: 3px;
 }
 
 /* --- pressing --- */
 :where(button, input[type='button'], input[type='submit'], input[type='reset'], [role='button']):where(:not(:active):hover) {
-    --_highlight-size: .5rem;
+    --_highlight-size: .2rem;
 }
 
 /* --- disabled --- */
 :where(button, input[type='button'], input[type='submit'], input[type='reset'])[disabled] {
-    --_bg: none;
+    --_highlight: none;
 
     cursor: not-allowed;
-    box-shadow: var(--_shadow-1);
 
-    @include color-scheme($os-dark) { --_text: hsl(210deg 11% 71%); }
-    @include color-scheme($os-light) { --_text: hsl(210deg 7% 40%); }
+    @include color-scheme($os-dark) { 
+        --_bg: hsl(210deg 9% 31%);
+        --_text: hsl(210deg 11% 71%);
+    }
+
+    @include color-scheme($os-light) { 
+        --_bg: hsl(0deg 0% 92%);
+        --_text: hsl(210deg 7% 40%);
+    }
 }
 
 /* --- red reset --- */
 :where([type='reset']) {
-    @include color-scheme($os-dark) { --_text: hsl(0deg 100% 89%); }
+
+    @include color-scheme($os-light) { 
+        --_bg: hsl(0deg 89% 58%);
+        --_border: hsl(0deg 100% 83%);
+        --_highlight: hsla(0deg 73% 55% / 25%);
+    }
+
     @include color-scheme($os-dark) {
+        --_bg: hsla(0deg 65% 82% / 27%);
         --_border: hsl(0deg 100% 83%);
         --_highlight: hsl(0deg 100% 89% / 20%);
-        --_text: hsl(0deg 80% 50%); 
+        --_text: hsl(0deg 80% 50%);
     }
 }
 
 :where([type='reset']):focus-visible {
-    outline-color: currentcolor;
+    outline-color: var(--_outline);
 }
 
 /* --- file input --- */
@@ -139,6 +140,8 @@
 :where(input[type='button']),
 :where(input[type='file'])::file-selector-button {
     appearance: none;
+    border: none;
+
 }
 
 :where(input[type='file'])::file-selector-button {
@@ -159,4 +162,82 @@
 :where(button, input[type='button'], input[type='submit'], input[type='reset'], [role='button'])[data-size='lg'],
 :where(input[type='file'][data-size='lg'])::file-selector-button {
     --_size: 1.25rem;
+}
+
+/* --- Variant Attribute --- */
+:where(button, input[type='button'], input[type='submit'], input[type='reset'], [role='button'])[data-variant='solid']{
+    @include color-scheme($os-light) {
+        --_hue: 244deg;
+        --_text: hsl(210deg 5% 95%);
+        --_bg: hsl(var(--_hue) 68% 57%);
+    }
+
+    @include color-scheme($os-dark) {
+        --_hue: 244deg;
+        --_text: hsl(210deg 5% 90%);
+        --_bg: hsl(var(--_hue) 64% 55%);
+    }
+}
+
+:where(button, input[type='button'], input[type='submit'], input[type='reset'], [role='button'])[data-variant='soft']{
+    border: none;
+    @include color-scheme($os-light) {
+        --_hue: 244deg;
+        --_text: hsl(var(--_hue) 81% 56%);
+        --_bg: hsla(var(--_hue) 78% 68% / 18%);
+    }
+
+    @include color-scheme($os-dark) {
+        --_hue: 244deg;
+        --_text: hsl(var(--_hue) 81% 66%);
+        --_bg: hsla(var(--_hue) 78% 68% / 28.5%);
+    }
+}
+
+:where(button, input[type='button'], input[type='submit'], input[type='reset'], [role='button'])[data-variant='outline']{
+    background: transparent;
+    @include color-scheme($os-light) {
+        --_hue: 244deg;
+        --_text: hsl(var(--_hue) 81% 56%);
+
+        border: 2px solid var(--_border);
+    }
+
+    @include color-scheme($os-dark) {
+        --_hue: 244deg;
+        --_text: hsl(var(--_hue) 79% 66%);
+
+        border: 2px solid var(--_border);
+    }
+}
+
+/* --- radius Attribute --- */
+:where(button, input[type='button'], input[type='submit'], input[type='reset'], [role='button'])[data-radius='none']{
+    --_border-radius: none;
+
+    border-radius: var(--_border-radius);
+}
+
+:where(button, input[type='button'], input[type='submit'], input[type='reset'], [role='button'])[data-radius='sm']{
+    --_border-radius: #{$radius-3};
+
+    border-radius: var(--_border-radius);
+}
+
+:where(button, input[type='button'], input[type='submit'], input[type='reset'], [role='button'])[data-radius='md']{
+    --_border-radius: #{$radius-4};
+
+    border-radius: var(--_border-radius);
+}
+
+:where(button, input[type='button'], input[type='submit'], input[type='reset'], [role='button'])[data-radius='lg']{
+    --_border-radius: #{$radius-5};
+
+    border-radius: var(--_border-radius);
+}
+
+:where(button, input[type='button'], input[type='submit'], input[type='reset'], [role='button'])[data-radius='full']{
+    --_border-radius: #{$radius-round};
+
+    border-radius: var(--_border-radius);
 }
