@@ -1,7 +1,7 @@
 {
-  "name": "starter-template",
+  "name": "button-stack",
   "version": "1.0.0",
-  "description": "A starter template for helping you build single page applications using jquery and sass",
+  "description": "A collection of stylish, flexible, and scalable button designs for the web.",
   "main": "index.js",
   "scripts": {
     "lint:css": "stylelint --formatter --config .stylelintrc.json \"**/*.scss\"",
