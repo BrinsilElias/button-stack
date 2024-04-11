@@ -7,6 +7,7 @@
     --_icon-size: #{$size-icon-sm};
     --_icon-color: var(--_text);
 
+    line-height: 1.5;
     border-radius: var(--_border-radius);
 }
 
@@ -20,8 +21,6 @@
         --_outline: hsl(var(--_hue) 63% 55%);
         --_highlight: hsl(var(--_hue) 50% 55% / 40%);
         --_input-well: hsl(200deg 10% 6%);
-
-        line-height: 1.5;
     }
 }
 
@@ -35,8 +34,6 @@
         --_outline: hsl(244deg 61% 60%);
         --_highlight: hsla(var(--_hue) 67% 66% / 30%);
         --_input-well: hsl(0deg 0% 92%);
-
-        line-height: 1.5;
     }
 }
 
@@ -115,12 +112,14 @@
     @include color-scheme($os-light) { 
         --_bg: hsl(0deg 89% 58%);
         --_border: hsl(0deg 100% 83%);
+        --_outline: hsl(0deg 89% 58%);
         --_highlight: hsla(0deg 73% 55% / 25%);
     }
 
     @include color-scheme($os-dark) {
         --_bg: hsla(0deg 65% 82% / 27%);
         --_border: hsl(0deg 100% 83%);
+        --_outline: hsl(0deg 80% 50%);
         --_highlight: hsl(0deg 100% 89% / 20%);
         --_text: hsl(0deg 80% 50%);
     }
