@@ -88,3 +88,17 @@ article {
         margin-bottom: $size-8;
     }
 }
+
+/* --- General Styles for Demo --- */
+.is-focus {
+    outline: var(--_outline) 2px solid;
+    outline-offset: 3px;
+}
+
+.is-hover {
+    --_highlight-size: .2rem;
+}
+
+.is-pressed {
+    box-shadow: hsl(var(--_hue) 0% 0% / 45%) 1px 1px 40px 0 inset;
+}
