@@ -84,9 +84,14 @@
     outline-offset: 3px;
 }
 
-/* --- pressing --- */
+/* --- Hover --- */
 :where(button, input[type='button'], input[type='submit'], input[type='reset'], [role='button']):where(:not(:active):hover) {
     --_highlight-size: .2rem;
+}
+
+/* --- Active --- */
+:where(button, input[type='button'], input[type='submit'], input[type='reset'], [role='button']):where(:active) {
+    box-shadow: hsl(var(--_hue) 0% 0% / 45%) 1px 1px 40px 0 inset;
 }
 
 /* --- disabled --- */
@@ -208,6 +213,10 @@
 
         border: 2px solid var(--_border);
     }
+}
+
+:where(button, input[type='button'], input[type='submit'], input[type='reset'], [role='button'])[data-variant][disabled] {
+    opacity: 0.5;
 }
 
 /* --- radius Attribute --- */
