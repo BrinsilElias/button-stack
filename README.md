@@ -8,7 +8,7 @@
         Atomic Component's button collection offers a powerful toolkit for crafting the perfect call-to-action elements for your web interfaces.
         <br />
         <br />
-        <a href="#" target="_blank">View Demo</a>
+        <a href="https://button-stack.netlify.app/" target="_blank">View Demo</a>
         ·
         <a href="https://github.com/BrinsilElias/button-stack/issues">Report Bug</a>
         ·
