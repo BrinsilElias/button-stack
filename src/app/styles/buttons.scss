@@ -1,11 +1,12 @@
 :where(button, input[type='button'], input[type='submit'], input[type='reset'], input[type='file'], [role='button']),
 :where(input[type='file'])::file-selector-button {
-    --_padding-inline: 1em;
-    --_padding-block: 0.25em;
+    --_padding-inline: #{$size-em-3};
+    --_padding-block: #{$size-em-1};
     --_border-radius: #{$radius-2};
     --_highlight-size: 0;
     --_icon-size: #{$size-icon-sm};
     --_icon-color: var(--_text);
+    --_icon-gap: #{$size-relative-2};
 
     line-height: 1.5;
     border-radius: var(--_border-radius);
@@ -31,7 +32,7 @@
         --_text: hsl(210deg 5% 95%);
         --_bg: hsl(var(--_hue) 68% 57%);
         --_border: hsl(var(--_hue) 75% 85%);
-        --_outline: hsl(244deg 61% 60%);
+        --_outline: hsl(var(--_hue)61% 60%);
         --_highlight: hsla(var(--_hue) 67% 66% / 30%);
         --_input-well: hsl(0deg 0% 92%);
     }
@@ -58,7 +59,7 @@
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    gap: $size-relative-2;
+    gap: var(--_icon-gap);
     font-weight: $font-weight-5;
     padding-block: var(--_padding-block);
     padding-inline: var(--_padding-inline);
@@ -91,13 +92,15 @@
 
 /* --- Active --- */
 :where(button, input[type='button'], input[type='submit'], input[type='reset'], [role='button']):where(:active) {
-    box-shadow: hsl(var(--_hue) 0% 0% / 45%) 1px 1px 40px 0 inset;
+    @include color-scheme($os-dark) { box-shadow: hsl(var(--_hue) 0% 0% / 45%) 1px 1px 40px 0 inset; }
+    @include color-scheme($os-light) { box-shadow: hsl(var(--_hue) 0% 80% / 45%) 1px 1px 40px 0 inset; }
 }
 
 /* --- disabled --- */
-:where(button, input[type='button'], input[type='submit'], input[type='reset'])[disabled] {
+:where(button, input[type='button'], input[type='submit']):where([disabled]) {
     --_highlight: none;
 
+    opacity: 0.5;
     cursor: not-allowed;
 
     @include color-scheme($os-dark) { 
@@ -134,6 +137,12 @@
     outline-color: var(--_outline);
 }
 
+:where(input[type='reset']):where([disabled]) {
+    --_highlight: none;
+
+    opacity: 0.7;
+}
+
 /* --- file input --- */
 :where(input[type='file']) {
     inline-size: 100%;
@@ -153,23 +162,23 @@
 }
 
 /* --- Size Attribute --- */
-:where(button, input[type='button'], input[type='submit'], input[type='reset'], [role='button'])[data-size='sm'],
+:where(button, input[type='button'], input[type='submit'], input[type='reset'], [role='button']):where([data-size='sm']),
 :where(input[type='file'][data-size='sm'])::file-selector-button {
     --_size: 0.875rem;
 }
 
-:where(button, input[type='button'], input[type='submit'], input[type='reset'], [role='button'])[data-size='md'],
+:where(button, input[type='button'], input[type='submit'], input[type='reset'], [role='button']):where([data-size='md']),
 :where(input[type='file'][data-size='md'])::file-selector-button {
     --_size: 1rem;
 }
 
-:where(button, input[type='button'], input[type='submit'], input[type='reset'], [role='button'])[data-size='lg'],
+:where(button, input[type='button'], input[type='submit'], input[type='reset'], [role='button']):where([data-size='lg']),
 :where(input[type='file'][data-size='lg'])::file-selector-button {
     --_size: 1.25rem;
 }
 
 /* --- Variant Attribute --- */
-:where(button, input[type='button'], input[type='submit'], input[type='reset'], [role='button'])[data-variant='solid']{
+:where(button, input[type='button'], input[type='submit'], input[type='reset'], [role='button']):where([data-variant='solid']){
     @include color-scheme($os-light) {
         --_hue: 244deg;
         --_text: hsl(210deg 5% 95%);
@@ -183,7 +192,7 @@
     }
 }
 
-:where(button, input[type='button'], input[type='submit'], input[type='reset'], [role='button'])[data-variant='soft']{
+:where(button, input[type='button'], input[type='submit'], input[type='reset'], [role='button']):where([data-variant='soft']){
     border: none;
     @include color-scheme($os-light) {
         --_hue: 244deg;
@@ -198,7 +207,7 @@
     }
 }
 
-:where(button, input[type='button'], input[type='submit'], input[type='reset'], [role='button'])[data-variant='outline']{
+:where(button, input[type='button'], input[type='submit'], input[type='reset'], [role='button']):where([data-variant='outline']){
     background: transparent;
     @include color-scheme($os-light) {
         --_hue: 244deg;
@@ -215,37 +224,39 @@
     }
 }
 
-:where(button, input[type='button'], input[type='submit'], input[type='reset'], [role='button'])[data-variant][disabled] {
+:where(button, input[type='button'], input[type='submit'], input[type='reset'], [role='button']):where([data-variant][disabled]) {
     opacity: 0.5;
 }
 
 /* --- radius Attribute --- */
-:where(button, input[type='button'], input[type='submit'], input[type='reset'], [role='button'])[data-radius='none']{
+:where(button, input[type='button'], input[type='submit'], input[type='reset'], [role='button']):where([data-radius='none']){
     --_border-radius: none;
 
     border-radius: var(--_border-radius);
 }
 
-:where(button, input[type='button'], input[type='submit'], input[type='reset'], [role='button'])[data-radius='sm']{
+:where(button, input[type='button'], input[type='submit'], input[type='reset'], [role='button']):where([data-radius='sm']){
     --_border-radius: #{$radius-3};
 
     border-radius: var(--_border-radius);
 }
 
-:where(button, input[type='button'], input[type='submit'], input[type='reset'], [role='button'])[data-radius='md']{
+:where(button, input[type='button'], input[type='submit'], input[type='reset'], [role='button']):where([data-radius='md']){
     --_border-radius: #{$radius-4};
 
     border-radius: var(--_border-radius);
 }
 
-:where(button, input[type='button'], input[type='submit'], input[type='reset'], [role='button'])[data-radius='lg']{
+:where(button, input[type='button'], input[type='submit'], input[type='reset'], [role='button']):where([data-radius='lg']){
     --_border-radius: #{$radius-5};
 
     border-radius: var(--_border-radius);
 }
 
-:where(button, input[type='button'], input[type='submit'], input[type='reset'], [role='button'])[data-radius='full']{
+:where(button, input[type='button'], input[type='submit'], input[type='reset'], [role='button']):where([data-radius='full']){
     --_border-radius: #{$radius-round};
 
     border-radius: var(--_border-radius);
 }
+
+

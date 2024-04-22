@@ -1,99 +1,115 @@
 <!-- PROJECT LOGO -->
-<br />
-<p align="center">
-  <a href="https://github.com/roshanlam/ReadMeTemplate/">
-    <img src="./src/assets/images/logo.png" alt="Logo" width="80" height="80">
-  </a>
+<div align="center">
+    <a href="https://github.com/BrinsilElias/button-stack">
+        <img src="./src/assets/images/atomic-icon.png" alt="Logo" width="80" height="80">
+    </a>
+    <h3 align="center">Atomic Component: Buttons</h3>
+    <p align="center">
+        Atomic Component's button collection offers a powerful toolkit for crafting the perfect call-to-action elements for your web interfaces.
+        <br />
+        <br />
+        <a href="#" target="_blank">View Demo</a>
+        ·
+        <a href="https://github.com/BrinsilElias/button-stack/issues">Report Bug</a>
+        ·
+        <a href="https://github.com/BrinsilElias/button-stack/issues">Request Feature</a>
+    </p>
+</div>
 
-  <h3 align="center">Read Me Template</h3>
-
-  <p align="center">
-    A Read Me template for your projects!
-    <br />
-    <a href="https://github.com/roshanlam/ReadMeTemplate/"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
-    <a href="https://github.com/roshanlam/ReadMeTemplate/">View Demo</a>
-    ·
-    <a href="https://github.com/roshanlam/ReadMeTemplate/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/roshanlam/ReadMeTemplate/issues">Request Feature</a>
-    ·
-    <a href="https://github.com/roshanlam/ReadMeTemplate/pulls">Send a Pull Request</a>
-  </p>
-</p>
+<!-- TABLE OF CONTENTS -->
+<details>
+    <summary>Table of Contents</summary>
+    <ol>
+        <li>
+            <a href="#about-the-project">About The Project</a>
+            <ul>
+                <li><a href="#built-with">Built With</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#getting-started">Getting Started</a>
+            <ul>
+                <li><a href="#prerequisites">Prerequisites</a></li>
+                <li><a href="#setup">Installation</a></li>
+            </ul>
+        </li>
+        <li><a href="#usage">Usage</a></li>
+        <li><a href="#roadmap">Roadmap</a></li>
+        <li><a href="#contributing">Contributing</a></li>
+        <li><a href="#license">License</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#acknowledgments">Acknowledgments</a></li>
+    </ol>
+</details>
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
+<img src="./src/assets/images/button-stack-dark.png" alt="Logo">
+<img src="./src/assets/images/button-stack-light.png" alt="Logo">
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+This collection of button components adheres to the principles of Atomic Design. Each button is constructed as a self-contained, and reusable element. This modular approach allows for maximum flexibility and ease of customization when building out your web interfaces.
 
-There are many great README templates available on GitHub, however, I didn't find one that really suited my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need.
 
-Here's why:
-* Your time should be focused on creating something amazing. A project that solves a problem and helps others
-* You shouldn't be doing the same tasks over and over like creating a README from scratch
-* You should element DRY principles to the rest of your life :smile:
-
-Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue.
-
-A list of commonly used resources that I find helpful are listed in the acknowledgements.
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Built With
-This section should list any major frameworks that you built your project using. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
-* [Bootstrap](https://getbootstrap.com)
-* [JQuery](https://jquery.com)
-* [Laravel](https://laravel.com)
 
+![SASS](https://img.shields.io/badge/SASS-hotpink.svg?style=for-the-badge&logo=SASS&logoColor=white)
 
+![jQuery](https://img.shields.io/badge/jquery-%230769AD.svg?style=for-the-badge&logo=jquery&logoColor=white)
+
+![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
+
+![Webpack](https://img.shields.io/badge/webpack-%238DD6F9.svg?style=for-the-badge&logo=webpack&logoColor=black)
+
+![ESLint](https://img.shields.io/badge/ESLint-4B3263?style=for-the-badge&logo=eslint&logoColor=white)
+
+![Stylelint](https://img.shields.io/badge/stylelint-000?style=for-the-badge&logo=stylelint&logoColor=white)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- GETTING STARTED -->
-## Getting Started
-
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+## ⛳ Getting Started
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
-* npm
+Please ensure you have Node.js installed on your machine, version 18 or greater. You can download it from the official website [NodeJs](https://nodejs.org/).
+
+#### Clone starter-template into a new folder
 ```sh
-npm install npm@latest -g
+mkdir new-project-name && cd $_
 ```
-
-### Installation
-
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
 ```sh
-git clone https://github.com/your_username_/Project-Name.git
+git clone --depth=1 https://github.com/BrinsilElias/button-stack.git && rm -rf ./.git
 ```
-3. Install NPM packages
+OR (essentially the same thing with npx + degit)
+
 ```sh
-npm install
-```
-4. Enter your API in `config.js`
-```JS
-const API_KEY = 'ENTER YOUR API';
+npx degit BrinsilElias/button-stack#main
 ```
 
+#### Install tools and spin it up
+1. `npm i` or `npm install` - Install all dependencies
+2. `npm start` - Start the development Server
+3. `npm run build` - Build static assets
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- USAGE EXAMPLES -->
 ## Usage
 
 Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+For more examples, please refer to the [Documentation](https://example.com)
 
-
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- ROADMAP -->
 ## 🚧 Roadmap
 
-See the [open issues](https://github.com/roshanlam/ReadMeTemplate/issues) for a list of proposed features (and known issues).
+See the [open issues](https://github.com/BrinsilElias/button-stack/issues) for a list of proposed features (and known issues).
 
-
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- CONTRIBUTING -->
 ## 🤝 Contributing
@@ -106,28 +122,22 @@ Contributions are what make the open source community such an amazing place to b
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- LICENSE -->
 ## 📝 License
-Describe your License for your project. 
-
 Distributed under the MIT License. See `LICENSE` for more information.
-
-
 
 <!-- CONTACT -->
 ## 📫 Contact
 
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
+Brinsil Elias - [@BrinsilE](https://twitter.com/BrinsilE)
 
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
-
-
+Project Link: [https://github.com/BrinsilElias/button-stack](https://github.com/BrinsilElias/button-stack.git)
 
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
-* [Img Shields](https://shields.io)
-* [GitHub Pages](https://pages.github.com)
-* [Font Awesome](https://fontawesome.com)
-* blah blah blah....
+* [open-props](https://open-props.style)
+* [Adam Argyle](https://github.com/argyleink)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
