@@ -47,8 +47,6 @@ main {
 article {
     display: grid;
     gap: $size-3;
-    grid-template-columns: repeat(6, max-content);
-    grid-template-rows: repeat(4, 1fr);
     position: relative;
     padding-block: 1rem;
     border-block: 1px var(--clr-body-border) solid;
@@ -100,5 +98,6 @@ article {
 }
 
 .is-pressed {
-    box-shadow: hsl(var(--_hue) 0% 0% / 45%) 1px 1px 40px 0 inset;
+    @include color-scheme($os-dark) { box-shadow: hsl(var(--_hue) 0% 0% / 45%) 1px 1px 40px 0 inset; }
+    @include color-scheme($os-light) { box-shadow: hsl(var(--_hue) 0% 80% / 45%) 1px 1px 40px 0 inset; }
 }

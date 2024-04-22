@@ -10,6 +10,18 @@ $size-8: 3rem;
 $size-9: 4rem;
 $size-10: 5rem;
 
+// Size (Ems) - Assuming a base font-size of 16px
+$size-em-1: 0.25em;
+$size-em-2: 0.5em;
+$size-em-3: 1em;
+$size-em-4: 1.25em;
+$size-em-5: 1.5em;
+$size-em-6: 1.75em;
+$size-em-7: 2em;
+$size-em-8: 3em;
+$size-em-9: 4em;
+$size-em-10: 5em;
+
 // Fluid Size
 $size-fluid-1: clamp(0.5rem, 1vw, 1rem);
 $size-fluid-2: clamp(1rem, 2vw, 1.5rem);
